@@ -1,0 +1,122 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Routine Pet Vaccination",
+    "providerName": "WarmPaws Veterinary Care",
+    "providerEmail": "support@warmpaws.com",
+    "price": 35,
+    "rating": 4.9,
+    "slotsAvailable": 8,
+    "description": "Essential vaccinations to protect pets from common diseases and maintain long-term immunity.",
+    "image": "https://i.ibb.co/qLc9CbRL/Gemini-Generated-Image-e2antqe2antqe2an.png",
+    "category": "Vaccination"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "General Pet Health Treatment",
+    "providerName": "WarmPaws Veterinary Care",
+    "providerEmail": "support@warmpaws.com",
+    "price": 50,
+    "rating": 4.8,
+    "slotsAvailable": 5,
+    "description": "Diagnosis and treatment for infections, digestive issues, fever, and minor injuries.",
+    "image": "https://i.ibb.co/5xKBmx3X/Gemini-Generated-Image-cmy0p3cmy0p3cmy0.png",
+    "category": "Treatment"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Pet Surgical & Operation Care",
+    "providerName": "WarmPaws Surgical Unit",
+    "providerEmail": "surgery@warmpaws.com",
+    "price": 180,
+    "rating": 4.7,
+    "slotsAvailable": 2,
+    "description": "Safe surgical procedures including spaying, neutering, and emergency operations.",
+    "image": "https://i.ibb.co/zVgjtXZ2/Gemini-Generated-Image-smlff4smlff4smlf.png",
+    "category": "Surgery"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Pet Birth & Maternity Support",
+    "providerName": "WarmPaws Maternity Center",
+    "providerEmail": "birthcare@warmpaws.com",
+    "price": 70,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Complete pregnancy monitoring, delivery assistance, and newborn pet care.",
+    "image": "https://i.ibb.co/4wR364FX/Gemini-Generated-Image-8ciir68ciir68cii.png",
+    "category": "Birth Care"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Senior Pet Health Monitoring",
+    "providerName": "WarmPaws Senior Care",
+    "providerEmail": "seniorcare@warmpaws.com",
+    "price": 45,
+    "rating": 4.8,
+    "slotsAvailable": 6,
+    "description": "Specialized care for aging pets focusing on joints, heart, and overall wellness.",
+    "image": "https://i.ibb.co/mVgGq0dm/Gemini-Generated-Image-qm64iuqm64iuqm64.png",
+    "category": "Senior Care"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "24/7 Emergency Pet Care",
+    "providerName": "WarmPaws Emergency Unit",
+    "providerEmail": "emergency@warmpaws.com",
+    "price": 90,
+    "rating": 4.9,
+    "slotsAvailable": 3,
+    "description": "Immediate medical attention for accidents, poisoning, breathing issues, or sudden illness.",
+    "image": "https://i.ibb.co/3yc3p3yG/Gemini-Generated-Image-d4qb3td4qb3td4qb.png",
+    "category": "Emergency"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Pet Dental Check & Cleaning",
+    "providerName": "WarmPaws Dental Care",
+    "providerEmail": "dental@warmpaws.com",
+    "price": 40,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Oral health checkups, teeth cleaning, and treatment of gum diseases.",
+    "image": "https://i.ibb.co/FLMTh6nR/Gemini-Generated-Image-iyp3jpiyp3jpiyp3.png",
+    "category": "Dental Care"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Parasite & Deworming Treatment",
+    "providerName": "WarmPaws Preventive Care",
+    "providerEmail": "preventive@warmpaws.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 7,
+    "description": "Prevention and treatment for worms, fleas, ticks, and other parasites.",
+    "image": "https://i.ibb.co/TDRQzfBs/Gemini-Generated-Image-3buyxf3buyxf3buy.png",
+    "category": "Preventive Care"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Pet Nutrition & Diet Consultation",
+    "providerName": "WarmPaws Nutrition Clinic",
+    "providerEmail": "nutrition@warmpaws.com",
+    "price": 25,
+    "rating": 4.6,
+    "slotsAvailable": 6,
+    "description": "Personalized diet plans based on pet age, breed, weight, and health conditions.",
+    "image": "https://i.ibb.co/q3PqcYgR/Gemini-Generated-Image-hwn9jfhwn9jfhwn9.png",
+    "category": "Nutrition"
+  },
+  {
+    "serviceId": 10,
+    "serviceName": "Behavior & Training Consultation",
+    "providerName": "WarmPaws Behavior Center",
+    "providerEmail": "behavior@warmpaws.com",
+    "price": 55,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Professional guidance for anxiety, aggression, obedience, and behavioral improvement.",
+    "image": "https://i.ibb.co/gFcCQL39/Gemini-Generated-Image-yz0sb7yz0sb7yz0s.png",
+    "category": "Behavior Care"
+  }
+]

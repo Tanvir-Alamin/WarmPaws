@@ -3,10 +3,12 @@ import petTips from "../Components/petTips";
 const Tips = () => {
   return (
     <div className="my-20 text-center flex flex-col items-center">
-      <div className="text-4xl font-bold mb-15">
-        Pet Care Tips You Can Trust
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 justify-center">
+      <div className="text-4xl font-bold mb-5">Pet Care Tips You Can Trust</div>
+      <p className="text-xl pb-10 text-gray-600">
+        Easy and practical tips to keep your pets healthy, happy, and safe every
+        day.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-3 justify-center">
         {petTips.map((idea) => (
           <div className="">
             <div className="m-5 p-5  bg-[#f5f2eb] w-80 text-center  hover:scale-110 transform transition duration-200 ease-in-out rounded-2xl">
