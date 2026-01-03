@@ -106,8 +106,8 @@ const Footer = () => {
           </div>
           <div className="flex items-center gap-5 justify-evenly pt-20">
             <div className="font-semibold">warmpaws@programminghero.net</div>
-            <div className="flex">
-              <Link className="bg-amber-300 w-35 flex items-center gap-1  py-2 font-semibold px-5 rounded-3xl">
+            <div className="flex ml-10 mr-5">
+              <Link className="bg-amber-300  w-35 flex items-center gap-1  py-2 font-semibold px-5 rounded-3xl">
                 Book now <Heart size={16} strokeWidth={3} absoluteStrokeWidth />
               </Link>
               <img className="w-10 h-10 mt-[-25px]" src={threeLine} alt="" />

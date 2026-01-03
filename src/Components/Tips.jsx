@@ -1,0 +1,24 @@
+import React from "react";
+import petTips from "../Components/petTips";
+const Tips = () => {
+  return (
+    <div className="my-20 text-center flex flex-col items-center">
+      <div className="text-4xl font-bold mb-15">
+        Pet Care Tips You Can Trust
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 justify-center">
+        {petTips.map((idea) => (
+          <div className="">
+            <div className="m-5 p-5  bg-[#f5f2eb] w-80 text-center  hover:scale-110 transform transition duration-200 ease-in-out rounded-2xl">
+              <p className="text-5xl">{idea.icon}</p>
+              <h1 className="font-semibold text-lg">{idea.title}</h1>
+              <p className="text-gray-700">{idea.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Tips;
