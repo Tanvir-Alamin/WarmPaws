@@ -35,10 +35,10 @@ const Hero = () => {
       <div className="my-15 mx-15 flex items-center justify-evenly">
         <img className="w-100 " src={petLove} alt="" />
         <div className="text-center">
-          <p className="text-5xl font-extrabold my-5">
+          <p className="md:text-5xl text-3xl font-extrabold my-5">
             Happy pets, <br></br> happy humans
           </p>
-          <p className="w-80 text-center ">
+          <p className="md:w-80 w-40 text-center ">
             We promise our best service and top-quality care for your pets.
             Every interaction is handled with love, attention, and dedication.
             From booking to adoption guidance, we ensure a seamless,

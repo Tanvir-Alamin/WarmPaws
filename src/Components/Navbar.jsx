@@ -3,32 +3,67 @@ import React from "react";
 // import petLogo from "../assets/petLogo.png";
 import paw from "../assets/paw.jpg";
 import { NavLink } from "react-router";
-import { ChevronDown, Heart, Phone } from "lucide-react";
+import { ChevronDown, Heart, Phone, Underline } from "lucide-react";
 
 const Navbar = () => {
   const link = (
     <div className="flex lg:flex-row flex-col gap-4">
-      <NavLink className="font-semibold text-sm hover:text-blue-900">
+      <NavLink
+        to="/home"
+        className={({ isActive }) =>
+          `font-semibold text-sm hover:text-blue-900 ${
+            isActive ? "underline decoration-1 underline-offset-8" : ""
+          }`
+        }
+      >
         <a className="flex ">
           Home <ChevronDown />
         </a>
       </NavLink>
-      <NavLink className="font-semibold text-sm hover:text-blue-900">
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          `font-semibold text-sm hover:text-blue-900 ${
+            isActive ? "underline decoration-1 underline-offset-8" : ""
+          }`
+        }
+      >
         <a className="flex ">
           About <ChevronDown />
         </a>
       </NavLink>
-      <NavLink className="font-semibold text-sm hover:text-blue-900">
+      <NavLink
+        to="/services"
+        className={({ isActive }) =>
+          `font-semibold text-sm hover:text-blue-900 ${
+            isActive ? "underline decoration-1 underline-offset-8" : ""
+          }`
+        }
+      >
         <a className="flex ">
           Services <ChevronDown />
         </a>
       </NavLink>
-      <NavLink className="font-semibold text-sm hover:text-blue-900">
+      <NavLink
+        to="/profile"
+        className={({ isActive }) =>
+          `font-semibold text-sm hover:text-blue-900 ${
+            isActive ? "underline decoration-1 underline-offset-8" : ""
+          }`
+        }
+      >
         <a className="flex ">
           My Profile <ChevronDown />
         </a>
       </NavLink>
-      <NavLink className="font-semibold text-sm hover:text-blue-900">
+      <NavLink
+        to="/login"
+        className={({ isActive }) =>
+          `font-semibold text-sm hover:text-blue-900 ${
+            isActive ? "underline decoration-1 underline-offset-8" : ""
+          }`
+        }
+      >
         <a className="flex ">
           Login <ChevronDown />
         </a>
