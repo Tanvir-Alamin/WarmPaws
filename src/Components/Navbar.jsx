@@ -2,7 +2,7 @@ import React from "react";
 // import petLogo from "../assets/petLogo.png";
 // import petLogo from "../assets/petLogo.png";
 import paw from "../assets/paw.jpg";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { ChevronDown, Heart, Phone, Underline } from "lucide-react";
 
 const Navbar = () => {
@@ -103,7 +103,10 @@ const Navbar = () => {
         </div>
         <div className="flex w-f ml-5 items-center">
           <img className="w-17 rounded-xl" src={paw} alt="" />
-          <a className="btn btn-ghost text-xl">WarmPaws</a>
+          <Link to="/home">
+            {" "}
+            <a className="btn btn-ghost text-xl">WarmPaws</a>
+          </Link>
         </div>
       </div>
       <div className="navbar-end mr-5 hidden  lg:flex gap-4">
@@ -111,7 +114,10 @@ const Navbar = () => {
           +880 1999-999-999
           <Phone />
         </p>
-        <NavLink className="bg-amber-300 flex items-center gap-1  py-2 font-semibold px-5 rounded-3xl">
+        <NavLink
+          to="/services"
+          className="bg-amber-300 flex items-center gap-1  py-2 font-semibold px-5 rounded-3xl"
+        >
           Book now <Heart size={16} strokeWidth={3} absoluteStrokeWidth />
         </NavLink>
       </div>

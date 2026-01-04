@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import vetsDoctor from "./vetsDoctor";
 import catPeek from "../assets/catPeek.png";
+import Aos from "aos";
 
 const Vets = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1200, once: true });
+  }, []);
   return (
     <div className="relative">
       <div className="flex flex-col items-center ">
@@ -22,16 +26,18 @@ const Vets = () => {
       />
       <div className="flex md:flex-row flex-col items-center mx-auto justify-evenly pb-25  gap-5">
         {vetsDoctor.map((vets) => (
-          <div className="card hover:scale-105 transform transition duration-200 ease-in-out bg-base-100 w-70 shadow-lg">
-            <figure className="">
-              <img className="" src={vets.image} alt="Shoes" />
-            </figure>
-            <div className="card-body bg-[#f5f2eb]">
-              <h2 className="card-title font-bold">{vets.name}</h2>
-              <div className="text-pink-500 font-semibold rounded-4xl">
-                {vets.specialty}
+          <div data-aos="fade-up">
+            <div className="card hover:scale-105 transform transition duration-200 ease-in-out bg-base-100 w-70 shadow-lg">
+              <figure className="">
+                <img className="" src={vets.image} alt="Shoes" />
+              </figure>
+              <div className="card-body bg-[#f5f2eb]">
+                <h2 className="card-title font-bold">{vets.name}</h2>
+                <div className="text-pink-500 font-semibold rounded-4xl">
+                  {vets.specialty}
+                </div>
+                <p className="font-semibold ">{vets.experience}</p>
               </div>
-              <p className="font-semibold ">{vets.experience}</p>
             </div>
           </div>
         ))}

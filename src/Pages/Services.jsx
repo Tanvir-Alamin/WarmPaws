@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import threeLine from "../assets/threeline.png";
+import catPlay from "../assets/catPlay.png";
 import { NavLink } from "react-router";
 import { Heart } from "lucide-react";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 const Services = () => {
   const [services, setServices] = useState([]);
 
@@ -10,28 +14,42 @@ const Services = () => {
     fetch("/services.json")
       .then((res) => res.json())
       .then((data) => setServices(data))
+      .then(() => {
+        Aos.init({
+          duration: 1400,
+          once: true,
+        });
+      }, [])
       .catch((error) => console.log(error));
   }, []);
 
   return (
-    <div className="my-25 ">
+    <div className="my-35 relative">
       <div className="flex flex-col justify-center items-center">
-        <div className="flex items-center mb-10">
+        <div className="flex items-center mb-15">
           {" "}
           <p className="text-4xl font-bold">
             Our Winter Pet Care Services
           </p>{" "}
           <img className="mt-[-35px]" src={threeLine} alt="" />
         </div>
-        <p className="text-xl pb-15 w-100 md:w-150 text-center text-gray-600">
+        <img
+          className="w-95 absolute hidden md:block  mt-[-120px] ml-[-950px]"
+          src={catPlay}
+          alt=""
+        />
+        <p className="text-xl pb-35 w-100 md:w-150 text-center text-gray-600">
           Keep your pets healthy and protected throughout the year with
           essential vaccinations for puppies, kittens, and adult pets.
         </p>
       </div>
       <div className="flex justify-center">
-        <div className="grid grid-cols-2 gap-10  md:grid-cols-3">
+        <div
+          data-aos="fade-up"
+          className="grid  grid-cols-2 gap-10  md:grid-cols-3"
+        >
           {services.map((service) => (
-            <div className="card hover:scale-105 w-50 md:w-90 transform transition duration-200 ease-in-out bg-base-100 shadow-lg">
+            <div className="card w-50 md:w-90  hover:scale-105 transform transition-all duration-300 ease-in-out bg-base-100 shadow-lg">
               <figure className="w-full h-65 flex justify-center items-center overflow-hidden">
                 <img
                   className="w-full h-full object-cover"

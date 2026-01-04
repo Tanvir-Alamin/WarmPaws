@@ -5,6 +5,8 @@ import pet3 from "../assets/pet3.png";
 import pet4 from "../assets/pet4.png";
 import pet5 from "../assets/pet5.png";
 import pet6 from "../assets/pet6.png";
+import cookie from "../assets/cookie.png";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -51,7 +53,24 @@ const HeroSlider = () => {
   };
 
   return (
-    <>
+    <div className="mt-25">
+      <div className="flex flex-col items-center">
+        <div className="relative">
+          {" "}
+          <div className="text-4xl font-bold mb-5">
+            How We Care for Your Pets
+          </div>
+          <img
+            className="absolute w-40 ml-[-350px] mt-[-100px]"
+            src={cookie}
+            alt=""
+          />
+        </div>
+        <p className="text-xl pb-20 text-gray-600">
+          From vaccinations to treatments, we provide all-round care to keep
+          your pets healthy and happy.
+        </p>
+      </div>
       <Swiper
         onSwiper={setSwiperRef}
         slidesPerView={3}
@@ -88,7 +107,7 @@ const HeroSlider = () => {
           <img src={pet6} alt="" />
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 };
 

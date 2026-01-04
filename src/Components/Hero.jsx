@@ -18,14 +18,17 @@ const Hero = () => {
               <Link className="bg-amber-300 flex items-center gap-1  py-2 font-semibold px-5 rounded-3xl">
                 Learn more
               </Link>
-              <Link className="bg-amber-300 flex items-center gap-1  py-2 font-semibold px-5 rounded-3xl">
+              <Link
+                to="/services"
+                className="bg-amber-300 flex items-center gap-1  py-2 font-semibold px-5 rounded-3xl"
+              >
                 Book now <Heart size={16} strokeWidth={3} absoluteStrokeWidth />
               </Link>
             </div>
           </div>
           <div className="">
             <img
-              className="absolute mr-15 bottom-[-33px] right-0 w-100 h-auto object-cover"
+              className="absolute hidden md:block mr-15 bottom-[-33px] right-0 w-100 h-auto object-cover"
               src={heroBg}
               alt=""
             />
