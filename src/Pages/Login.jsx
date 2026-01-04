@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import dogLogin from "../assets/dogLogin.jpg";
 import { Link } from "react-router";
+import { Eye, EyeOff } from "lucide-react";
 
 const Login = () => {
+  const [eye, setEye] = useState(false);
+
   return (
     <div>
       <div className="flex items-center  justify-center">
@@ -23,11 +26,22 @@ const Login = () => {
               <label className="label text-gray-800 font-semibold">
                 Password
               </label>
-              <input
-                type="password"
-                className="input bg-green-50"
-                placeholder="Password"
-              />
+              <div className="items-center flex relative">
+                <input
+                  type={!eye ? "password" : "text"}
+                  className="input bg-green-50"
+                  placeholder="Password"
+                />
+                <p
+                  className="absolute ml-[90%]"
+                  onClick={() => {
+                    setEye(!eye);
+                  }}
+                >
+                  {" "}
+                  {!eye ? <EyeOff /> : <Eye />}
+                </p>
+              </div>
               <Link className="text-xs mt-1 underline text-blue-600">
                 Forgot your password?
               </Link>
