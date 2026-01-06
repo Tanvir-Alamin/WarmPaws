@@ -1,12 +1,81 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import signUp from "../assets/signUp.jpg";
 import { Link } from "react-router";
 import { Eye, EyeOff } from "lucide-react";
+import { AuthContext } from "../Context/AuthContext";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
   const [eye, setEye] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const { emailSignUp, setUser } = useContext(AuthContext);
+  const [name, setName] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const passwordRegex = /^(?=.*\d).{6,}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const imageRegex = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))/i;
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    const name = e.target.name.value.trim();
+    const nameOfUser = e.target.name.value.trim();
+    const photoURL = e.target.img.value.trim();
+
+    if (!nameOfUser) {
+      setError("Full Name is required");
+      return;
+    }
+
+    if (!imageRegex.test(photoURL)) {
+      setError("Photo URL is required");
+      return;
+    }
+
+    if (!email) {
+      setError("Email is required");
+      return;
+    }
+    if (!email.includes("@")) {
+      setError("Email must contain @ symbol");
+      return;
+    }
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+    if (!password) {
+      setError("Password is required");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long");
+      return;
+    }
+    if (!passwordRegex.test(password)) {
+      setError("Password must contain at least one number");
+      return;
+    }
+    setError("");
+
+    emailSignUp(email, password)
+      .then((result) => {
+        setName(nameOfUser);
+        setUser(result.user);
+        updateProfile(result.user, { displayName: name, photoURL: photoURL })
+          .then("")
+          .catch("");
+        setSuccess(true);
+        e.target.reset();
+      })
+      .catch((error) => console.log(error.message));
+  };
   return (
-    <div>
+    <div data-aos="fade-left">
+      {window.scrollTo(0, 0)}
       <div>
         <div className="flex items-center  justify-center">
           <div className=" bg-green-300 flex justify-between  my-25 shadow-2xl rounded-2xl ">
@@ -15,7 +84,7 @@ const SignUp = () => {
               src={signUp}
               alt=""
             />
-            <form className="">
+            <form onSubmit={handleSubmit} className="">
               <fieldset className="fieldset  border-none rounded-box mt-5 w-xs mx-15 border p-4">
                 <div className="text-3xl text-center text-green-950 font-sans font-semibold">
                   Sing Up <br></br>
@@ -28,6 +97,7 @@ const SignUp = () => {
                   Full Name *
                 </label>
                 <input
+                  name="name"
                   type=""
                   className="input  bg-green-50"
                   placeholder="Enter your full name"
@@ -36,6 +106,7 @@ const SignUp = () => {
                   Email *
                 </label>
                 <input
+                  name="email"
                   type="email"
                   className="input  bg-green-50"
                   placeholder="Enter your email"
@@ -44,6 +115,7 @@ const SignUp = () => {
                   Photo URL
                 </label>
                 <input
+                  name="img"
                   type="text"
                   className="input  bg-green-50"
                   placeholder="Enter photo URL"
@@ -54,6 +126,7 @@ const SignUp = () => {
                 </label>
                 <div className="items-center flex relative">
                   <input
+                    name="password"
                     type={!eye ? "password" : "text"}
                     className="input bg-green-50"
                     placeholder="Password"
@@ -68,8 +141,20 @@ const SignUp = () => {
                     {!eye ? <EyeOff /> : <Eye />}
                   </p>
                 </div>
-
-                <button className="btn btn-accent font-bold mt-4">
+                {error ? (
+                  <p className="text-red-500 font-semibold text-xm">{error}</p>
+                ) : (
+                  ""
+                )}
+                {success ? (
+                  <p className="text-blue-600 font-sans font-semibold">
+                    Welcome <span className="text-sm">'{name}'</span> Your
+                    account has been successfully created ✓
+                  </p>
+                ) : (
+                  ""
+                )}
+                <button className="btn btn-accent font-bold mt-2">
                   Sign up
                 </button>
               </fieldset>

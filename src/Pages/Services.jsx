@@ -24,7 +24,8 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="my-35 relative">
+    <div data-aos="fade-up" className="my-35 relative">
+      {window.scrollTo(0, 0)}
       <div className="flex flex-col justify-center items-center">
         <div className="flex items-center mb-15">
           {" "}
@@ -44,10 +45,7 @@ const Services = () => {
         </p>
       </div>
       <div className="flex justify-center">
-        <div
-          data-aos="fade-up"
-          className="grid  grid-cols-2 gap-10  md:grid-cols-3"
-        >
+        <div className="grid  grid-cols-2 gap-10  md:grid-cols-3">
           {services.map((service) => (
             <div className="card w-50 md:w-90  hover:scale-105 transform transition-all duration-300 ease-in-out bg-base-100 shadow-lg">
               <figure className="w-full h-65 flex justify-center items-center overflow-hidden">
@@ -77,7 +75,7 @@ const Services = () => {
                   </span>
                 </div>
                 <NavLink
-                  to="/details"
+                  to={`/details/${service.serviceId}`}
                   className="bg-amber-300 flex items-center gap-1 btn py-2 font-semibold px-5 rounded-3xl"
                 >
                   Book now{" "}

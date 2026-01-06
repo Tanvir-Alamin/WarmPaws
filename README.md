@@ -1,16 +1,139 @@
-# React + Vite
+# 🐾 Pet Care Service Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Pet Care Service web application where users can explore different pet care services, view service details, and book services securely after logging in.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Website
 
-## React Compiler
+🔗 https://your-live-site-link.com  
+_(Replace with your deployed site URL if needed)_
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🎯 Project Purpose
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The purpose of this project is to create a user-friendly pet care service platform that demonstrates:
+
+- Authentication using Firebase
+- Protected routing in React
+- Dynamic service details
+- Profile management
+- Clean UI with animations
+
+This project is built as an assignment-friendly but real-world styled React application.
+
+---
+
+## ✨ Key Features
+
+- 🔐 **Firebase Authentication**
+
+  - Email & Password login
+  - Google Sign-in
+  - Logout from all providers
+
+- 🛡️ **Protected Routes**
+
+  - Service details page
+  - User profile page
+  - Redirects unauthenticated users to login
+
+- 🐶 **Pet Care Services**
+
+  - View all services
+  - Animated service cards
+  - Service details page using dynamic routes
+
+- 📝 **Booking Form**
+
+  - Available on service details page
+  - Accessible only for logged-in users
+
+- 👤 **User Profile Management**
+
+  - View user name, email, and photo
+  - Update name, email, and photo URL
+  - Firebase profile & email update
+
+- 🎨 **Modern UI & UX**
+
+  - Tailwind CSS + DaisyUI
+  - AOS animation on scroll
+  - Icons using lucide-react & react-icons
+  - Toast notifications
+
+- 🔄 **Scroll Restoration**
+  - Automatically scrolls to top on page change
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+
+- React (Vite)
+- React Router v6
+- Tailwind CSS
+- DaisyUI
+
+### Authentication
+
+- Firebase Authentication
+
+### Animation & UI
+
+- AOS (Animate On Scroll)
+- lucide-react
+- react-icons
+
+### Notifications
+
+- react-toastify
+
+---
+
+## 📦 NPM Packages Used
+
+```bash
+react
+react-dom
+react-router-dom
+firebase
+tailwindcss
+daisyui
+aos
+lucide-react
+react-icons
+react-toastify
+```
+
+src/
+│── Context/
+│ └── AuthContext.jsx
+│
+│── Pages/
+│ ├── Home.jsx
+│ ├── Services.jsx
+│ ├── Details.jsx
+│ ├── Login.jsx
+│ ├── SignUp.jsx
+│ └── Profile.jsx
+│
+│── Components/
+│ ├── PrivateRoute.jsx
+│ ├── Spinner.jsx
+│ └── ScrollToTop.jsx
+│
+│── public/
+│ └── services.json
+│
+└── main.jsx
+
+👨‍💻 Author
+
+Tanvir Alamin
+BBA Student | Learning React & Firebase
+📍 Bangladesh
+
+⭐ If you like this project, feel free to give it a star!

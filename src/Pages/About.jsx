@@ -5,9 +5,9 @@ import catDogPlay from "../assets/catDogPlay.png";
 
 const About = () => {
   return (
-    <div>
+    <div data-aos="fade-up">
       <div>
-        {" "}
+        {window.scrollTo(0, 0)}
         <div className="flex my-25 items-center justify-center">
           <p className="text-4xl font-san font-bold">About us</p>
           <img className="mt-[-35px]" src={threeLine} alt="" />

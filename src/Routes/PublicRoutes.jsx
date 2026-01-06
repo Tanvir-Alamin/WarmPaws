@@ -5,6 +5,9 @@ import About from "../Pages/About";
 import Services from "../Pages/Services";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
+import Profile from "../Pages/Profile";
+import Details from "../Pages/Details";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +37,18 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         Component: SignUp,
+      },
+      {
+        path: "/profile",
+        Component: Profile,
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
       },
     ],
   },

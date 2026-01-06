@@ -53,7 +53,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="mt-25">
+    <div data-aos="fade-up" data-aos-duration="1000" className="mt-25">
       <div className="flex flex-col items-center">
         <div className="relative">
           {" "}
@@ -61,7 +61,7 @@ const HeroSlider = () => {
             How We Care for Your Pets
           </div>
           <img
-            className="absolute w-40 ml-[-350px] mt-[-100px]"
+            className="absolute hover:animate-bounce  w-40 ml-[-350px] mt-[-100px]"
             src={cookie}
             alt=""
           />

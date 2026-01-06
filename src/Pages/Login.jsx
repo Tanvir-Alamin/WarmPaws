@@ -1,16 +1,74 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import dogLogin from "../assets/dogLogin.jpg";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { Eye, EyeOff } from "lucide-react";
+import { AuthContext } from "../Context/AuthContext";
+import { FirebaseError } from "firebase/app";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const { googleSignIn, setUser, emailSignIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location?.state?.from?.pathname || "";
+  console.log(from);
+
   const [eye, setEye] = useState(false);
 
+  const submitGoogle = (e) => {
+    e.preventDefault();
+    googleSignIn()
+      .then((result) => {
+        setUser(result.user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error.message));
+  };
+  const loginHandle = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    if (!email) {
+      setError("Email is required");
+      return;
+    }
+
+    if (!password) {
+      setError("Password is required");
+      return;
+    }
+    setError("");
+
+    emailSignIn(email, password)
+      .then((result) => {
+        e.target.reset();
+        setUser(result.user);
+        setSuccess(true);
+      })
+      .catch((error) => {
+        handleFirebaseError(error.code);
+      });
+    const handleFirebaseError = (code) => {
+      if (code === "auth/invalid-credential") {
+        setError("Invalid email or password");
+      } else if (code === "auth/invalid-email") {
+        setError("Please enter a valid email");
+      } else if (code === "auth/user-disabled") {
+        setError("This account has been disabled");
+      } else {
+        setError("Login failed. Please try again");
+      }
+    };
+  };
+
   return (
-    <div>
+    <div data-aos="fade-right">
+      {window.scrollTo(0, 0)}
       <div className="flex items-center  justify-center">
         <div className=" bg-green-300 flex justify-between  my-25 shadow-2xl rounded-2xl ">
-          <form className="">
+          <form onSubmit={loginHandle} className="">
             <fieldset className="fieldset  border-none rounded-box mt-5 w-xs mx-15 border p-4">
               <div className="text-3xl text-center text-green-950 font-sans font-semibold">
                 Sing in to discover the Forest
@@ -18,6 +76,7 @@ const Login = () => {
 
               <label className="label text-gray-800 font-semibold">Email</label>
               <input
+                name="email"
                 type="email"
                 className="input  bg-green-50"
                 placeholder="Email"
@@ -28,6 +87,7 @@ const Login = () => {
               </label>
               <div className="items-center flex relative">
                 <input
+                  name="password"
                   type={!eye ? "password" : "text"}
                   className="input bg-green-50"
                   placeholder="Password"
@@ -42,9 +102,15 @@ const Login = () => {
                   {!eye ? <EyeOff /> : <Eye />}
                 </p>
               </div>
-              <Link className="text-xs mt-1 underline text-blue-600">
+              <Link className="text-xs mt-1 underline text-blue-900">
                 Forgot your password?
               </Link>
+              {error ? <p className="text-red-500 text-sm">{error}</p> : ""}
+              {success ? (
+                <p className="text-blue-600 text-sm">Login successful ✓</p>
+              ) : (
+                ""
+              )}
 
               <button className="btn btn-accent font-bold mt-4">Login</button>
             </fieldset>
@@ -53,7 +119,7 @@ const Login = () => {
               <div className="mx-3">Or continue with</div>
               <div>────────</div>
             </div>
-            <div className="flex my-5 justify-center">
+            <div onClick={submitGoogle} className="flex my-5 justify-center">
               {" "}
               <button className="btn bg-white w-71 text-black border-[#e5e5e5]">
                 <svg
