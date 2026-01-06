@@ -46,6 +46,7 @@ const Login = () => {
         e.target.reset();
         setUser(result.user);
         setSuccess(true);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         handleFirebaseError(error.code);

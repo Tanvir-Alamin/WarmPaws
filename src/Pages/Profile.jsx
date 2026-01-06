@@ -96,7 +96,7 @@ const Profile = () => {
     return (
       <div className="flex md:flex-row flex-col bg-[#daf1de] justify-evenly items-center border-[#daf1de]">
         {" "}
-        <div data-aos="fade-left" className="relative ">
+        <div data-aos="fade-right" className="relative ">
           {window.scrollTo(0, 0)}
           <img className="absolute w-30 mx-auto" src={catProfile} alt="" />
           <div className="bg-white my-15  h-147 w-100 md:w-90 mx-auto rounded-3xl py-10 justify-center flex flex-col j">
@@ -201,6 +201,14 @@ const Profile = () => {
 
                 <button className="btn text-lg btn-accent my-5 font-bold mt-2">
                   Sign up
+                </button>
+                <button
+                  onClick={(e) => {
+                    setUpdate(false), e.target.reset();
+                  }}
+                  className="btn text-lg btn-soft my-5 font-bold mt-2"
+                >
+                  Cancel
                 </button>
               </fieldset>
             </form>

@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 // import petLogo from "../assets/petLogo.png";
 // import petLogo from "../assets/petLogo.png";
 import paw from "../assets/paw.jpg";
 import { Link, NavLink } from "react-router";
 import { ChevronDown, Heart, Phone, Underline } from "lucide-react";
+import { AuthContext } from "../Context/AuthContext";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user?.photoURL);
+
   const link = (
-    <div className="flex lg:flex-row flex-col gap-4">
+    <div className="flex items-center lg:flex-row flex-col gap-4">
       <NavLink
         to="/home"
         className={({ isActive }) =>
@@ -16,9 +20,9 @@ const Navbar = () => {
           }`
         }
       >
-        <a className="flex ">
+        <p className="flex ">
           Home <ChevronDown />
-        </a>
+        </p>
       </NavLink>
       <NavLink
         to="/about"
@@ -28,9 +32,9 @@ const Navbar = () => {
           }`
         }
       >
-        <a className="flex ">
+        <p className="flex ">
           About <ChevronDown />
-        </a>
+        </p>
       </NavLink>
       <NavLink
         to="/services"
@@ -40,34 +44,44 @@ const Navbar = () => {
           }`
         }
       >
-        <a className="flex ">
+        <p className="flex ">
           Services <ChevronDown />
-        </a>
+        </p>
       </NavLink>
-      <NavLink
-        to="/profile"
-        className={({ isActive }) =>
-          `font-semibold text-sm hover:text-blue-900 ${
-            isActive ? "underline decoration-1 underline-offset-8" : ""
-          }`
-        }
-      >
-        <a className="flex ">
-          My Profile <ChevronDown />
-        </a>
-      </NavLink>
-      <NavLink
-        to="/login"
-        className={({ isActive }) =>
-          `font-semibold text-sm hover:text-blue-900 ${
-            isActive ? "underline decoration-1 underline-offset-8" : ""
-          }`
-        }
-      >
-        <a className="flex ">
-          Login <ChevronDown />
-        </a>
-      </NavLink>
+      {user ? (
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            `font-semibold text-sm hover:text-blue-900 ${
+              isActive ? "underline decoration-1 underline-offset-8" : ""
+            }`
+          }
+        >
+          <img
+            className="w-12 border-3 rounded-full"
+            src={user?.photoURL}
+            alt=""
+          />
+        </NavLink>
+      ) : (
+        ""
+      )}
+      {!user ? (
+        <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            `font-semibold text-sm hover:text-blue-900 ${
+              isActive ? "underline decoration-1 underline-offset-8" : ""
+            }`
+          }
+        >
+          <p className="flex ">
+            Login <ChevronDown />
+          </p>
+        </NavLink>
+      ) : (
+        ""
+      )}
     </div>
   );
   return (
@@ -105,7 +119,7 @@ const Navbar = () => {
           <img className="w-17 rounded-xl" src={paw} alt="" />
           <Link to="/home">
             {" "}
-            <a className="btn btn-ghost text-xl">WarmPaws</a>
+            <p className="btn btn-ghost text-xl">WarmPaws</p>
           </Link>
         </div>
       </div>

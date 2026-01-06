@@ -14,7 +14,7 @@ const Tips = () => {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 justify-center">
         {petTips.map((idea) => (
-          <div data-aos="zoom-in-up" className="">
+          <div key={idea.id} data-aos="zoom-in-up" className="">
             <div className="m-5 p-5  bg-[#f5f2eb] w-80 text-center  hover:scale-110 transform transition duration-200 ease-in-out rounded-2xl">
               <p className="text-5xl">{idea.icon}</p>
               <h1 className="font-semibold text-lg">{idea.title}</h1>

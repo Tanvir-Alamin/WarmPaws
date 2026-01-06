@@ -4,12 +4,14 @@ import Hero from "../Components/Hero";
 import Tips from "../Components/Tips";
 import Vets from "../Components/Vets";
 import Spinner from "../Components/Spinner";
+import Tranding from "../Components/Tranding";
 
 const Home = () => {
   return (
     <div>
       {window.scrollTo(0, 0)}
       <Hero></Hero>
+      <Tranding></Tranding>
       <HeroSlider></HeroSlider>
       <Tips></Tips>
       <Vets></Vets>

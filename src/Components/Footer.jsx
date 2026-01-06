@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import paw from "../assets/paw.jpg";
 import threeLine from "../assets/threeline.png";
 import footerDog from "../assets/footerDog.png";
@@ -8,10 +8,12 @@ import { BsArrowUpSquareFill } from "react-icons/bs";
 import { IoIosArrowDropupCircle } from "react-icons/io";
 import { Link, NavLink } from "react-router";
 import { ChevronDown, Heart } from "lucide-react";
+import { AuthContext } from "../Context/AuthContext";
 
 const Footer = () => {
+  const { user } = useContext(AuthContext);
   const link = (
-    <div className="flex lg:flex-row flex-col gap-4">
+    <div className="flex items-center lg:flex-row flex-col gap-4">
       <NavLink
         to="/home"
         className={({ isActive }) =>
@@ -20,9 +22,9 @@ const Footer = () => {
           }`
         }
       >
-        <a className="flex ">
+        <p className="flex ">
           Home <ChevronDown />
-        </a>
+        </p>
       </NavLink>
       <NavLink
         to="/about"
@@ -32,9 +34,9 @@ const Footer = () => {
           }`
         }
       >
-        <a className="flex ">
+        <p className="flex ">
           About <ChevronDown />
-        </a>
+        </p>
       </NavLink>
       <NavLink
         to="/services"
@@ -44,34 +46,44 @@ const Footer = () => {
           }`
         }
       >
-        <a className="flex ">
+        <p className="flex ">
           Services <ChevronDown />
-        </a>
+        </p>
       </NavLink>
-      <NavLink
-        to="/profile"
-        className={({ isActive }) =>
-          `font-semibold text-sm hover:text-blue-900 ${
-            isActive ? "underline decoration-1 underline-offset-8" : ""
-          }`
-        }
-      >
-        <a className="flex ">
-          My Profile <ChevronDown />
-        </a>
-      </NavLink>
-      <NavLink
-        to="/login"
-        className={({ isActive }) =>
-          `font-semibold text-sm hover:text-blue-900 ${
-            isActive ? "underline decoration-1 underline-offset-8" : ""
-          }`
-        }
-      >
-        <a className="flex ">
-          Login <ChevronDown />
-        </a>
-      </NavLink>
+      {user ? (
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            `font-semibold text-sm hover:text-blue-900 ${
+              isActive ? "underline decoration-1 underline-offset-8" : ""
+            }`
+          }
+        >
+          <img
+            className="w-12 border-3 rounded-full"
+            src={user?.photoURL}
+            alt=""
+          />
+        </NavLink>
+      ) : (
+        ""
+      )}
+      {!user ? (
+        <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            `font-semibold text-sm hover:text-blue-900 ${
+              isActive ? "underline decoration-1 underline-offset-8" : ""
+            }`
+          }
+        >
+          <p className="flex ">
+            Login <ChevronDown />
+          </p>
+        </NavLink>
+      ) : (
+        ""
+      )}
     </div>
   );
   return (

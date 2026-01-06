@@ -26,7 +26,7 @@ const Vets = () => {
       />
       <div className="flex md:flex-row flex-col items-center mx-auto justify-evenly pb-25  gap-5">
         {vetsDoctor.map((vets) => (
-          <div data-aos="fade-up">
+          <div key={vets.id} data-aos="fade-up">
             <div className="card hover:scale-105 transform transition duration-200 ease-in-out bg-base-100 w-70 shadow-lg">
               <figure className="">
                 <img className="" src={vets.image} alt="Shoes" />

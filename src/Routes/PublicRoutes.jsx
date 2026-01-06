@@ -8,6 +8,7 @@ import SignUp from "../Pages/SignUp";
 import Profile from "../Pages/Profile";
 import Details from "../Pages/Details";
 import PrivateRoute from "./PrivateRoute";
+import PrivateRouteForSignIn from "./PrivateRouteForSignIn";
 
 const router = createBrowserRouter([
   {
@@ -32,11 +33,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        Component: Login,
+        element: (
+          <PrivateRouteForSignIn>
+            <Login></Login>
+          </PrivateRouteForSignIn>
+        ),
       },
       {
         path: "/signup",
-        Component: SignUp,
+        element: (
+          <PrivateRouteForSignIn>
+            <SignUp></SignUp>
+          </PrivateRouteForSignIn>
+        ),
       },
       {
         path: "/profile",
