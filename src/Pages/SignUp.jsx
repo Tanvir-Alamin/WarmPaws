@@ -1,16 +1,22 @@
 import React, { useContext, useState } from "react";
 import signUp from "../assets/signUp.jpg";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { Eye, EyeOff } from "lucide-react";
 import { AuthContext } from "../Context/AuthContext";
 import { updateProfile } from "firebase/auth";
+import Aos from "aos";
 
 const SignUp = () => {
+  Aos.init({
+    duration: 1400,
+    once: true,
+  });
   const [eye, setEye] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const { emailSignUp, setUser } = useContext(AuthContext);
   const [name, setName] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -70,8 +76,21 @@ const SignUp = () => {
           .catch("");
         setSuccess(true);
         e.target.reset();
+        navigate("/home");
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => {
+        if (error.code === "auth/email-already-in-use") {
+          setError("This email is already registered. Please login instead.");
+        } else if (error.code === "auth/invalid-email") {
+          setError("Invalid email address.");
+        } else if (error.code === "auth/weak-password") {
+          setError("Password is too weak.");
+        } else if (error.code === "auth/network-request-failed") {
+          setError("Network error. Please check your internet connection.");
+        } else {
+          setError("Something went wrong. Please try again.");
+        }
+      });
   };
   return (
     <div data-aos="fade-left">

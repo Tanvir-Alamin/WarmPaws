@@ -6,10 +6,7 @@ A modern Pet Care Service web application where users can explore different pet 
 
 ## 🌐 Live Website
 
-🔗 https://your-live-site-link.com  
-_(Replace with your deployed site URL if needed)_
-
----
+🔗 https://warm-paws-app.netlify.app/
 
 ## 🎯 Project Purpose
 

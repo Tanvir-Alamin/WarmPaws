@@ -11,8 +11,13 @@ import { FaCat } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 import { updateProfile, updateEmail } from "firebase/auth";
+import Aos from "aos";
 
 const Profile = () => {
+  Aos.init({
+    duration: 1400,
+    once: true,
+  });
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -138,7 +143,7 @@ const Profile = () => {
                 </span>{" "}
                 {user.displayName}
               </div>
-              <div className="text-sm  bg-[#aec3b0]  py-1 text-center w-40 rounded-xl font-san font-semibold">
+              <div className="text-sm  bg-[#aec3b0]  py-1 text-center w-40 wrap-anywhere rounded-xl font-san font-semibold">
                 <span className="text-gray-700 text-sm flex items-center gap-0.5 justify-center">
                   <Mail /> Email <br></br>{" "}
                 </span>

@@ -4,15 +4,20 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { Eye, EyeOff } from "lucide-react";
 import { AuthContext } from "../Context/AuthContext";
 import { FirebaseError } from "firebase/app";
+import Aos from "aos";
 
 const Login = () => {
+  Aos.init({
+    duration: 1400,
+    once: true,
+  });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const { googleSignIn, setUser, emailSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const from = location?.state?.from?.pathname || "";
+  const from = location?.state?.from?.pathname || "/home";
   console.log(from);
 
   const [eye, setEye] = useState(false);
@@ -21,8 +26,8 @@ const Login = () => {
     e.preventDefault();
     googleSignIn()
       .then((result) => {
-        setUser(result.user);
         navigate(from, { replace: true });
+        setUser(result.user);
       })
       .catch((error) => console.log(error.message));
   };

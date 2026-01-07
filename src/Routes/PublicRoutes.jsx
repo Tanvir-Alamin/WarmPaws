@@ -9,6 +9,7 @@ import Profile from "../Pages/Profile";
 import Details from "../Pages/Details";
 import PrivateRoute from "./PrivateRoute";
 import PrivateRouteForSignIn from "./PrivateRouteForSignIn";
+import Error from "../Pages/Error";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         Component: Profile,
+      },
+      {
+        path: "*",
+        Component: Error,
       },
       {
         path: "/details/:id",

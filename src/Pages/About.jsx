@@ -2,8 +2,13 @@ import React from "react";
 import threeLine from "../assets/threeline.png";
 import me from "../assets/me.png";
 import catDogPlay from "../assets/catDogPlay.png";
+import Aos from "aos";
 
 const About = () => {
+  Aos.init({
+    duration: 1400,
+    once: true,
+  });
   return (
     <div data-aos="fade-up">
       <div>

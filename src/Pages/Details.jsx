@@ -13,6 +13,10 @@ import { AuthContext } from "../Context/AuthContext";
 import Spinner from "../Components/Spinner";
 
 const Details = () => {
+  Aos.init({
+    duration: 1400,
+    once: true,
+  });
   const [services, setServices] = useState([]);
   console.log(services);
 
