@@ -30,10 +30,10 @@ const Profile = () => {
   };
   const handleUpdate = (e) => {
     e.preventDefault();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const imageRegex = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))/i;
 
-    const email = e.target.email.value;
+    // const email = e.target.email.value;
 
     const name = e.target.name.value.trim();
 
@@ -50,22 +50,22 @@ const Profile = () => {
       return;
     }
 
-    if (!email) {
-      setError("Email is required");
-      return;
-    }
-    if (!email.includes("@")) {
-      setError("Email must contain @ symbol");
-      return;
-    }
-    if (!emailRegex.test(email)) {
-      setError("Please enter a valid email address");
-      return;
-    }
+    // if (!email) {
+    //   setError("Email is required");
+    //   return;
+    // }
+    // if (!email.includes("@")) {
+    //   setError("Email must contain @ symbol");
+    //   return;
+    // }
+    // if (!emailRegex.test(email)) {
+    //   setError("Please enter a valid email address");
+    //   return;
+    // }
 
     updateProfile(user, { displayName: name, photoURL: photoURL })
       .then((result) => {
-        updateEmail(result.user, email).then(() => {
+        updateEmail(result.user).then(() => {
           setSuccess(true);
         });
       })
@@ -173,14 +173,16 @@ const Profile = () => {
                   className="input  bg-green-50"
                   placeholder="Enter your full name"
                 />
-                <label className="label text-lg text-gray-800 font-semibold">
-                  New Email *
+                <label className="label text-lg text-gray-400 font-semibold">
+                  Email can't be changed *
                 </label>
                 <input
                   name="email"
                   type="email"
+                  readOnly
+                  style={{ cursor: "not-allowed" }}
                   className="input  bg-green-50"
-                  placeholder="Enter your email"
+                  placeholder={user.email}
                 />
                 <label className="label text-lg text-gray-800 font-semibold">
                   New Photo URL
