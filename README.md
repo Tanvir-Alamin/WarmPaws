@@ -127,10 +127,16 @@ src/
 │
 └── main.jsx
 
-👨‍💻 Author
+---
 
-Tanvir Alamin
-BBA Student | Learning React & Firebase
+## 👨‍💻 Author
+
+**Tanvir Alamin**  
+BBA Student | Learning React & Firebase  
 📍 Bangladesh
 
-⭐ If you like this project, feel free to give it a star!
+---
+
+## ⭐ Support
+
+If you like this project, feel free to give it a star ⭐
