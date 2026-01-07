@@ -105,30 +105,6 @@ react-icons
 react-toastify
 ```
 
-src/
-│── Context/
-│ └── AuthContext.jsx
-│
-│── Pages/
-│ ├── Home.jsx
-│ ├── Services.jsx
-│ ├── Details.jsx
-│ ├── Login.jsx
-│ ├── SignUp.jsx
-│ └── Profile.jsx
-│
-│── Components/
-│ ├── PrivateRoute.jsx
-│ ├── Spinner.jsx
-│ └── ScrollToTop.jsx
-│
-│── public/
-│ └── services.json
-│
-└── main.jsx
-
----
-
 ## 👨‍💻 Author
 
 **Tanvir Alamin**  
